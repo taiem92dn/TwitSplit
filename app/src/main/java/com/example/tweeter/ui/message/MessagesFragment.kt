@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.tweeter.R
 import com.example.tweeter.di.component.AppComponent
 import com.example.tweeter.presenter.MessagesPresenter
@@ -27,7 +28,7 @@ class MessagesFragment : BaseFragment(), IMessageView{
 
     }
 
-    var mAdapter : MessagesAdapter ?= null
+    private lateinit var mAdapter : MessagesAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -59,13 +60,20 @@ class MessagesFragment : BaseFragment(), IMessageView{
         }
 
         btPost.setOnClickListener {
-            mAdapter?.addItem(etInputMessage.text.toString())
+            mMessagesPresenter.processMessages(etInputMessage.text.toString())
             etInputMessage.text = null
         }
 
 
     }
 
+    override fun addMessages(messages: List<String>) {
+        mAdapter.addItems(messages)
+    }
+
+    override fun showError(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+    }
 
     override fun showLoading() {
 

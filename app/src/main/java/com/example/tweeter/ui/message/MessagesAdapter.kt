@@ -29,6 +29,13 @@ class MessagesAdapter(data : MutableList<String>) : RecyclerView.Adapter<Message
         }
     }
 
+    fun addItems(items : List<String>) {
+        if (items.isNotEmpty()) {
+            mData.addAll(items)
+            notifyDataSetChanged()
+        }
+    }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.tvMessage.text = mData.get(position)
     }

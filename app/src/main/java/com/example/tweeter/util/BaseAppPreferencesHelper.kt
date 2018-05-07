@@ -26,4 +26,5 @@ open class BaseAppPreferencesHelper {
     }
 
     fun isFirstUseApp() = mFirstUseApp
+
 }
