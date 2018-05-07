@@ -9,6 +9,9 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Editable
+import android.text.TextUtils
+import android.text.TextWatcher
 import android.view.*
 import android.widget.Toast
 import com.example.tweeter.R
@@ -110,6 +113,7 @@ class MessagesFragment : BaseFragment(), IMessageView{
 
         dialog.window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
         dialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
 
         // handle post button
         dialogView.btPost.setOnClickListener {
@@ -117,6 +121,21 @@ class MessagesFragment : BaseFragment(), IMessageView{
             dialogView.etInputMessage.text = null
             revealShow(dialogView, false, dialog)
         }
+
+        dialogView.etInputMessage.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(charSequence: CharSequence, p1: Int, p2: Int, p3: Int) {
+                dialogView.btPost.isEnabled = !TextUtils.isEmpty(charSequence)
+            }
+
+        })
 
         return dialog
     }
