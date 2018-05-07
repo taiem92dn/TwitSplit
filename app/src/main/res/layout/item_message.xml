@@ -8,8 +8,8 @@
     android:layout_marginTop="@dimen/default_margin_tiny"
     android:layout_marginLeft="@dimen/default_margin_small"
     android:layout_marginStart="@dimen/default_margin_small"
-    android:layout_marginEnd="@dimen/default_margin_small"
-    android:layout_marginRight="@dimen/default_margin_large">
+    android:layout_marginEnd="@dimen/default_margin_medium"
+    android:layout_marginRight="@dimen/default_margin_medium">
     <TextView
         android:id="@+id/tvMessage"
         android:layout_width="match_parent"

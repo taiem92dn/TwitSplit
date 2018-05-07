@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-     xmlns:tools="http://schemas.android.com/tools"
-     android:layout_width="match_parent"
-     android:layout_height="match_parent"
-     tools:context=".ui.message.MessagesFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.message.MessagesFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvMessages"
@@ -18,5 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/default_margin_normal"
+        app:backgroundTint="@color/colorPrimary"
         android:src="@drawable/ic_add" />
 </android.support.design.widget.CoordinatorLayout>
