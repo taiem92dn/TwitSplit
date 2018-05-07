@@ -51,7 +51,8 @@ class MessagesFragment : BaseFragment(), IMessageView{
 
     private fun setupUI() {
 
-        mAdapter = MessagesAdapter(mutableListOf("message 1", "message 2", "message 3"))
+        mAdapter = MessagesAdapter()
+        mAdapter.addItems(mutableListOf("message 1", "message 2", "message 3"))
 
         rvMessages.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -59,10 +60,8 @@ class MessagesFragment : BaseFragment(), IMessageView{
             this.adapter = mAdapter
         }
 
-        btPost.setOnClickListener {
-            mMessagesPresenter.processMessages(etInputMessage.text.toString())
-            etInputMessage.text = null
-        }
+//        mMessagesPresenter.processMessages(etInputMessage.text.toString())
+//        etInputMessage.text = null
 
 
     }

@@ -1,30 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
      xmlns:tools="http://schemas.android.com/tools"
      android:layout_width="match_parent"
      android:layout_height="match_parent"
-      android:orientation="vertical"
      tools:context=".ui.message.MessagesFragment">
-
-    <EditText
-        android:id="@+id/etInputMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minLines="3"/>
-    <Button
-        android:id="@+id/btPost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:backgroundTint="#000"
-        android:textColor="#fff"
-        android:textAllCaps="false"
-        android:text="@string/post"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvMessages"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-</LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/default_margin_normal"
+        android:src="@drawable/ic_add" />
+</android.support.design.widget.CoordinatorLayout>

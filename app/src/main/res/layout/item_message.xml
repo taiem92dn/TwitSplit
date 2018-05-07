@@ -3,9 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/default_margin_small">
+    android:background="@drawable/bg_message"
+    android:padding="@dimen/default_margin_normal"
+    android:layout_marginTop="@dimen/default_margin_tiny"
+    android:layout_marginLeft="@dimen/default_margin_small"
+    android:layout_marginStart="@dimen/default_margin_small"
+    android:layout_marginEnd="@dimen/default_margin_small"
+    android:layout_marginRight="@dimen/default_margin_large">
     <TextView
         android:id="@+id/tvMessage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:textColor="@color/white"/>
 </FrameLayout>
