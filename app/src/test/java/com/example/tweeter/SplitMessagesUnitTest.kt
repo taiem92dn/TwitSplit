@@ -89,7 +89,7 @@ class SplitMessagesUnitTest {
     fun `test error message`() {
         val message = "12345678901234567890123456789012345678901234567 1234567980 1234567890"
 
-        assertEquals(null, SplitMessagesUtil.splitMessage(message))
+        assertEquals(ArrayList<String>(), SplitMessagesUtil.splitMessage(message))
     }
 
     @Test
