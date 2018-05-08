@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.item_message.view.*
 
 class MessagesAdapter : RecyclerView.Adapter<MessagesAdapter.ViewHolder>() {
 
-    var mData : MutableList<MessageItem> = ArrayList()
+    var mData : ArrayList<MessageItem> = ArrayList()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_message, parent, false)

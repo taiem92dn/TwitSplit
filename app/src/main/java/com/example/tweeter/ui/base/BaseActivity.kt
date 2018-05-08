@@ -42,7 +42,7 @@ open class BaseActivity : AppCompatActivity() {
 
         setupActivityComponent()
 
-        var hostFragment = hostFragment()
+        val hostFragment = hostFragment()
         if (hostFragment != null) {
             setContentView(R.layout.activity_base)
             this.toolbar.visibility = View.GONE

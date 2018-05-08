@@ -24,7 +24,6 @@ import javax.inject.Inject
 
 class MessagesFragment : BaseFragment(), IMessageView{
 
-    private val TAG = MessagesFragment::class.simpleName
 
     @Inject
     lateinit var mMessagesPresenter : MessagesPresenter
@@ -34,6 +33,8 @@ class MessagesFragment : BaseFragment(), IMessageView{
         @JvmStatic
         fun newInstance(): MessagesFragment? = MessagesFragment()
 
+        private val TAG = MessagesFragment::class.simpleName
+        private const val KEY_MESSAGE_DATA = "KEY_MESSAGE_DATA"
     }
 
     private lateinit var mAdapter : MessagesAdapter
@@ -42,9 +43,22 @@ class MessagesFragment : BaseFragment(), IMessageView{
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+        mAdapter = MessagesAdapter()
+        savedInstanceState ?.let{
+            mAdapter.mData = it.getParcelableArrayList(KEY_MESSAGE_DATA)
+        }
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_messages, container, false)
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putParcelableArrayList(KEY_MESSAGE_DATA, mAdapter.mData)
+    }
+
 
     override fun onScreenVisible() {
         super.onScreenVisible()
@@ -60,9 +74,6 @@ class MessagesFragment : BaseFragment(), IMessageView{
     }
 
     private fun setupUI() {
-
-        mAdapter = MessagesAdapter()
-
         rvMessages.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
@@ -72,8 +83,6 @@ class MessagesFragment : BaseFragment(), IMessageView{
         fab.setOnClickListener({
             showDialog()
         })
-
-
 
     }
 
